@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { sineIn } from 'svelte/easing';
 	type Point = {
 		x: number;
 		y: number;
@@ -7,8 +8,9 @@
 	let points: Point[] = [];
 	// 1920 x 1080
 	points.push({ x: 200, y: 200 });
-	points.push({ x: 900, y: 800 });
-	points.push({ x: 1500, y: 500 });
+	points.push({ x: 900, y: 900 });
+	points.push({ x: 1600, y: 700 });
+	points.push({ x: 1020, y: 1080 - 900 });
 
 	function bezier(t: number, p1: Point, p2: Point): Point {
 		return {
@@ -16,11 +18,6 @@
 			y: Number(((1 - t) * p1.y + t * p2.y).toFixed(5)) //ok maybe no need for toFixed...
 		};
 	}
-	// Start the animation
-	let t = 0;
-	let q0 = bezier(t, points[0], points[1]);
-	let q1 = bezier(t, points[1], points[2]);
-	let b = bezier(t, q0, q1);
 
 	function drawLine(p1: Point, p2: Point): { length: number; angle: number } {
 		let deltaX = p2.x - p1.x;
@@ -31,21 +28,49 @@
 		};
 	}
 
+	function travel(t: number, points: Point[], pos: Point): [number, Point] {
+		t += 0.01;
+		q0 = bezier(t, points[0], points[1]);
+		q1 = bezier(t, points[1], points[2]);
+		pos = bezier(t, q0, q1);
+		// console.log(t);
+		if (t > 1) {
+			console.log('GG');
+
+			t = 0;
+		}
+		return [t, pos];
+	}
+
+	// Start the animation
+	let t = 0;
+	let q0 = bezier(t, points[0], points[1]);
+	let q1 = bezier(t, points[1], points[2]);
+	let b = bezier(t, q0, q1);
+	let k = 0;
+	let alpha = 0;
+
 	function animate() {
 		// Use requestAnimationFrame for smooth animations
 		function frame() {
-			t += 0.01;
-			q0 = bezier(t, points[0], points[1]);
-			q1 = bezier(t, points[1], points[2]);
-			b = bezier(t, q0, q1);
-			// console.log(t);
-			if (t > 1) {
-				console.log('GG');
+			// t = Math.cos(alpha);
+			alpha += 0.01 * Math.PI;
+			console.log(t);
 
-				t = 0;
+			if (Math.sin(alpha) > 0) {
+				let back = points.slice(2);
+				back.push(points[0]);
+				[t, b] = travel(t, back, b);
+			} else {
+				[t, b] = travel(t, points, b);
 			}
-			// Call frame again to continue animation
+
 			window.requestAnimationFrame(frame);
+			// [t, b] = travel(t, points, b);
+
+			// points.push(points[0]);
+			// travel(t, points.slice(2));
+			// Call frame again to continue animation
 		}
 
 		// Start the animation
@@ -67,5 +92,6 @@
 <h1 style="max-height:10%;bottom:{points[0].y}px;left:{points[0].x}px;position:absolute;">O</h1>
 <h1 style="max-height:10%;bottom:{points[1].y}px;left:{points[1].x}px;position:absolute;">O</h1>
 <h1 style="max-height:10%;bottom:{points[2].y}px;left:{points[2].x}px;position:absolute;">O</h1>
+<h1 style="max-height:10%;bottom:{points[3].y}px;left:{points[3].x}px;position:absolute;">O</h1>
 <h1 style="max-height:10%;bottom:{q0.y}px;left:{q0.x}px;position:absolute;">O</h1>
 <h1 style="max-height:10%;bottom:{q1.y}px;left:{q1.x}px;position:absolute;">O</h1>
