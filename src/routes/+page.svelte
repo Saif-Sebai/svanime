@@ -13,11 +13,11 @@
 <!-- <Dvd></Dvd> -->
 <!-- <Bezier></Bezier> -->
 <!-- <Ball></Ball> -->
-<Arrow radiusX={30} radiusY={20} speed={0.05} rotate={1}>WHAAAAAAAAAAAT?</Arrow>
+<Arrow radiusX={30} radiusY={20} speed={0.05} rotateInner={1}>WHAAAAAAAAAAAT?</Arrow>
 <Arrow radiusX={20} radiusY={20} speed={0.04}>
 	<img alt="" src="https://media.tenor.com/L4ncxhqryfQAAAAj/cat.gif" />
 </Arrow>
 
-<Arrow radiusX={30} radiusY={60} speed={0.04} rotate={1}>
+<Arrow radiusX={20} radiusY={60} speed={0.04} rotationDeg={45}>
 	<img alt="" src="https://media.tenor.com/gjTjxUCoP3sAAAAj/jumping-gatito.gif" />
 </Arrow>
