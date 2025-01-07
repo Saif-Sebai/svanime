@@ -9,8 +9,8 @@
 	// 1920 x 1080
 	points.push({ x: 200, y: 200 });
 	points.push({ x: 900, y: 1600 });
-	points.push({ x: 1900, y: 700 });
-	points.push({ x: 1020, y: 1080 - 900 });
+	points.push({ x: 2700, y: 700 });
+	points.push({ x: 1420, y: 1080 - 900 });
 	points.push(points[0]);
 	points.push(points[2]);
 	// points.push(points[1]);
@@ -102,14 +102,21 @@
 	}
 </script>
 
-<img
+<!-- <img
 	style="max-height:10%;bottom:{b.y - 20}px;left:{b.x - 150}px;position:absolute;"
 	alt=""
 	src="https://www.gifservice.fr/img/gif-vignette-large/a6d3d0463855c0a5c5e6ecfc2366d5f0/273082-d-v-d-video-video-iconos-multimedia.gif"
+/> -->
+
+<img
+	style="max-height:20%;bottom:{b.y - 20}px;left:{b.x - 150}px;position:absolute;"
+	alt=""
+	src="https://i.pinimg.com/originals/44/a8/da/44a8dabf0e4bf6e2616cd0f6d0ce5912.gif"
 />
-<h1 style="max-height:10%;bottom:{points[0].y}px;left:{points[0].x}px;position:absolute;">.</h1>
+<!-- <h1 style="max-height:10%;bottom:{points[0].y}px;left:{points[0].x}px;position:absolute;">.</h1>
 <h1 style="max-height:10%;bottom:{points[1].y}px;left:{points[1].x}px;position:absolute;">.</h1>
 <h1 style="max-height:10%;bottom:{points[2].y}px;left:{points[2].x}px;position:absolute;">.</h1>
-<h1 style="max-height:10%;bottom:{points[3].y}px;left:{points[3].x}px;position:absolute;">.</h1>
+<h1 style="max-height:10%;bottom:{points[3].y}px;left:{points[3].x}px;position:absolute;">.</h1> -->
+
 <!-- <h1 style="max-height:10%;bottom:{q0.y}px;left:{q0.x}px;position:absolute;">O</h1> -->
 <!-- <h1 style="max-height:10%;bottom:{q1.y}px;left:{q1.x}px;position:absolute;">O</h1> -->

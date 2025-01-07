@@ -6,6 +6,7 @@
 	export let speed: number = 0.05; // Speed of the animation
 	export let rotateInner: number = 0;
 	export let rotationDeg = 0;
+	export let z_index = 20;
 
 	let rotationAngle = rotationDeg * (Math.PI / 180); // convert to radians
 	let x = 50; // Initial x position (percentage)
@@ -62,7 +63,7 @@
 </script>
 
 <div
-	style="top:{y}%; left:{x}%; transform: translate(-50%, -50%) rotate({rotation}deg); skewX({50}deg);"
+	style="top:{y}%; left:{x}%; transform: translate(-50%, -50%) rotate({rotation}deg); skewX({50}deg);z-index: {z_index};"
 	class="rotating"
 >
 	<slot></slot>
