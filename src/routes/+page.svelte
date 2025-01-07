@@ -12,7 +12,7 @@
 
 	function toggleValue(): void {
 		value = value === 100 ? 10 : 100;
-		console.log(value); // Logs the current value for demonstration purposes
+		// console.log(value); // Logs the current value for demonstration purposes
 	}
 
 	// Set an interval to call `toggleValue` every 4 milliseconds
