@@ -17,7 +17,7 @@
 
 	// Set an interval to call `toggleValue` every 4 milliseconds
 	setInterval(toggleValue, 2000);
-	console.log(value);
+	// console.log(value);
 </script>
 
 <!-- 
